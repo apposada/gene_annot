@@ -1,0 +1,16 @@
+# Snakefile main
+
+# Configuration
+configfile:"config/config.yaml"
+
+# Report
+report: "report/workflow.rst"
+
+# RULES
+include: "rules/common.smk"
+
+
+#Rule ALL
+
+rule all:
+	input: [expand("{runname}_{organism}.pep.fa",runname=config["runname"],organism=config["organism"]),'annotation.DONE']

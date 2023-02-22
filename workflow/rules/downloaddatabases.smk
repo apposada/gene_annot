@@ -1,0 +1,6 @@
+rule downloadhmmer:
+	output:
+	shell:
+	'''
+	
+	'''

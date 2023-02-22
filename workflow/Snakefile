@@ -8,7 +8,20 @@ report: "report/workflow.rst"
 
 # RULES
 include: "rules/common.smk"
-
+include: "rules/genomeindex.smk"
+include: "rules/parsegtf.smk"
+include: "rules/longestisoforms.smk"
+include: "rules/gffread.smk"
+#include: "rules/renamesequences.smk"
+include: "rules/downloaddatabases.smk"
+include: "rules/longorfs.smk"
+include: "rules/hmmer.smk"
+include: "rules/blastp.smk"
+include: "rules/transdecoderEvidences.smk"
+include: "rules/eggnog.smk"
+include: "rules/recipbesthits.smk"
+include: "rules/TFannot.smk"
+include: "rules/orthofinder.smk"
 
 #Rule ALL
 

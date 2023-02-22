@@ -1,0 +1,8 @@
+# Config File
+
+path_genome: "data/genome.fa"
+path_gtf: "data/annotation.gtf"
+path_transcriptome: "data/transcripts.fasta"
+
+params:
+  genomeindex: ""

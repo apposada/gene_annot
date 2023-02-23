@@ -2,7 +2,7 @@ rule downloadeggnog:
 	params:
 		database = config["params"]["eggnogdatabase"]
 	conda:"../envs/eggnog.yml"
-	output: "eggnogdb.DONE"
+	output: "checkpoints/eggnogdb.DONE"
 	shell:
 		'''
 		download_eggnog_data.py -y -H -d {params.database} && \
@@ -10,7 +10,7 @@ rule downloadeggnog:
 		'''
 
 rule downloadhmmer:
-	output:"dlhmmer.DONE"
+	output:"checkpoints/dlhmmer.DONE"
 	params:
 		hmmerURL = config["params"]["hmmer_url"]
 	conda: "../envs/hmmscan.yml"
@@ -22,7 +22,7 @@ rule downloadhmmer:
 		'''
 
 rule downloadswissprot:
-	output:"dlswissprot.DONE"
+	output:"checkpoints/dlswissprot.DONE"
 	params:
 		swissprotURL = config["params"]["swissprot_url"]
 	conda: "../envs/blastp.yml"
@@ -41,3 +41,17 @@ rule downloadanimaltfdb:
 		'''
 		wget {params.animaltfdbURL} && touch {output}
 		'''
+
+rule downloadSFAM:
+	output: "checkpoints/dlSFAM.DONE"
+	params:
+		SFAM_URL = config["params"]["SUPERFAMILY_URL"]
+	shell:
+		'''
+		wget {params.SFAM_URL} && touch {output}
+		'''
+
+#this should be user-provided maybe? a table that snakemake can read using functions?
+rule downloadOrthofinderGenomes:
+	output: "dlOFgenomes.DONE"
+	params:

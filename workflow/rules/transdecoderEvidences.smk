@@ -1,11 +1,11 @@
 rule transdecoder_predict_evidence:
 	input:
 		transcripts = "transdecoder/transcripts.fna",
-		longorfsdone = "steps/longorfs.done",
+		longorfsdone = "checkpoints/longorfs.done",
 		pfam = "pfam.domtblout",
 		blastp = "blastp.outfmt6"
 	output: 
-		transdecoderDone = "transdecoder.DONE",
+		transdecoderDone = "checkpoints/transdecoder.DONE",
 		transdecoderTSV = "transdecoder/transdecoder.tsv",
 		predictedpep = "transdecoder/predicted.pep"
 	params:

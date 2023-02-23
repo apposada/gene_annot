@@ -20,9 +20,10 @@ include: "rules/blastp.smk"
 include: "rules/transdecoderEvidences.smk"
 include: "rules/emapper.smk"
 include: "rules/recipbesthits.smk"
+include: "rules/interproscan.smk"
 # include: "rules/TFannot.smk"
 # include: "rules/orthofinder.smk"
 
 #Rule ALL
 rule all:
-	input: ["transdecoder/predicted.pep","emapper.DONE", "predicted_rbh.tsv"]
+	input: ["transdecoder/predicted.pep","emapper.DONE", "predicted_rbh.tsv", "predicted.pep_pfam_tfs.tsv","predicted.pep_sfam_tfs.tsv" ]

@@ -1,7 +1,7 @@
 rule makeblastdb:
 	input:
 		predictedpep = "transdecoder/predicted.pep"
-	output: "makeblastdb.done"
+	output: "checkpoints/makeblastdb.done"
 	conda: "../envs/blastp.yml"
 	log: "logs/makeblastdb.log"
 	shell:
@@ -13,8 +13,8 @@ rule makeblastdb:
 rule recipbesthits:
 	input:
 		predictedpep = "transdecoder/predicted.pep",
-		swissprotdone = "dlswissprot.DONE",
-		blastdbdone = "makeblastdb.done"
+		swissprotdone = "checkpoints/dlswissprot.DONE",
+		blastdbdone = "checkpoints/makeblastdb.done"
 	output: "predicted_rbh.tsv"
 	params:
 		rbh1 = config["params"]["rbh1"],

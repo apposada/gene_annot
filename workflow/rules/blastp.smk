@@ -1,7 +1,7 @@
 rule blastpevidence:
 	input: 
-		longorfs = "steps/longorfs.done",
-		swissprotdone = "dlswissprot.DONE"
+		longorfs = "checkpoints/longorfs.done",
+		swissprotdone = "checkpoints/dlswissprot.DONE"
 	output:"blastp.outfmt6"
 	conda: "../envs/blast.yml"
 	shell:

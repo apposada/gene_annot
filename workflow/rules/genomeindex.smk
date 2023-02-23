@@ -1,7 +1,7 @@
 rule genomeindex:
 	input:
 		genome = genome,
-	output: "genomeindex.done"
+	output: "checkpoints/genomeindex.done"
 	params:
 		genomeindex = config["params"]["genomeindex"]
 	log: "logs/genomeindex.log"

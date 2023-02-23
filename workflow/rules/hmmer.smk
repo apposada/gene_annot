@@ -1,7 +1,7 @@
 rule hmmerevidence:
 	input: 
-		longorfs = "steps/longorfs.done",
-		hmmerdone = "dlhmmer.DONE"
+		longorfs = "checkpoints/longorfs.done",
+		hmmerdone = "checkpoints/dlhmmer.DONE"
 	output:"pfam.domtblout"
 	conda: "../envs/hmmscan.yml"
 	shell:

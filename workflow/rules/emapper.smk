@@ -1,7 +1,7 @@
 rule emapper:
 	input:
 		pep = "transdecoder/predicted.pep",
-		DBdone = "eggnogdb.DONE"
+		DBdone = "checkpoints/eggnogdb.DONE"
 	params:
 		eggnog = config["params"]["emapper"],
 		outdir = "./eggnog"

@@ -13,3 +13,6 @@ params:
   animalTFDB_url: ""
   rbh1: r"""-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 qseqid sseqid qcovhsp evalue""""
   rbh2: r"""-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 sseqid qseqid qcovhsp evalue""""
+  PATH_TO_PFAM_TF_DATABASE: ""
+  PATH_TO_SFAM_TF_DATABASE: ""
+  SUPERFAMILY_URL: ""

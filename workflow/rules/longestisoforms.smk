@@ -5,5 +5,5 @@ rule longestisoforms:
 	log:
 	shell:
 		'''
-		agat_sp_keep_longest_isoform.pl --gff {input.gff} -o {output}
+		agat_sp_keep_longest_isoform.pl --gff {input} -o {output}
 		'''

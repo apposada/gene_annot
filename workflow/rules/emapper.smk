@@ -1,9 +1,9 @@
 rule emapper:
 	input:
-		pep = "transdecoder/longest.pep",
+		pep = "transdecoder/predicted.pep",
 		DBdone = "eggnogdb.DONE"
 	params:
-		eggnog = config["params"]["emapper"]
+		eggnog = config["params"]["emapper"],
 		outdir = "./eggnog"
 	output: "emapper.DONE"
 	conda: "../envs/eggnog.yml"
@@ -14,6 +14,6 @@ rule emapper:
         -i {input.pep} \
 		--itype proteins \
         {params.eggnog} \
-        --output {params.output} && \
+        --output ./predicted.pep && \
 		touch {output}
 		'''

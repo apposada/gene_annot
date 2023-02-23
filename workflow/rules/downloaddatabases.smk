@@ -13,18 +13,24 @@ rule downloadhmmer:
 	output:"dlhmmer.DONE"
 	params:
 		hmmerURL = config["params"]["hmmer_url"]
+	conda: "../envs/hmmscan.yml"
 	shell:
 		'''
-		wget {params.hmmerURL} && touch {output}
+		wget {params.hmmerURL} && \
+		hmmpress && \
+		touch {output}
 		'''
 
 rule downloadswissprot:
 	output:"dlswissprot.DONE"
 	params:
 		swissprotURL = config["params"]["swissprot_url"]
+	conda: "../envs/blastp.yml"
 	shell:
 		'''
-		wget {params.swissprotURL} && touch {output}
+		wget {params.swissprotURL} && \
+		makeblasdtb -dbtype prot -in uniprot_sprot.fasta && \
+		touch {output}
 		'''
 
 rule downloadanimaltfdb:

@@ -10,3 +10,6 @@ params:
   emapper: "-m diamond --sensmode sensitive --target_orthologs all --go_evidence non-electronic"
   hmmer_url: "https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz"
   swissprot_url: "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz"
+  animalTFDB_url: ""
+  rbh1: r"""-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 qseqid sseqid qcovhsp evalue""""
+  rbh2: r"""-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 sseqid qseqid qcovhsp evalue""""

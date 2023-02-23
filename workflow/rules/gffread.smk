@@ -1,15 +1,16 @@
 rule gffread:
 	input:
 		genome = genome,
-		gtf = "data/longest.gff3"
+		gtf = "data/longest.gff3",
 		indexdone = "genomeindex.done"
 	output:
-		transcripts="transcripts.fna"
+		transcripts="transdecoder/transcripts.fna",
 		done="gffread.done"
 	log: "logs/gffread.log"
 	conda: "../envs/gffread.yml"
 	shell:
 		'''
-		gffread -w {output[0]} -g {input.genome} {input.gtf} 2> {log} &1>2 && \
-		touch ./steps/{output[1]}
+		gffread -w transcripts.fna -g {input.genome} {input.gtf} 2> {log} &1>2 && \
+		touch ./steps/{output.done}
+		cp transcripts.fna {output.transcripts}
 		'''

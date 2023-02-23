@@ -18,12 +18,11 @@ include: "rules/longorfs.smk"
 include: "rules/hmmer.smk"
 include: "rules/blastp.smk"
 include: "rules/transdecoderEvidences.smk"
-include: "rules/eggnog.smk"
+include: "rules/emapper.smk"
 include: "rules/recipbesthits.smk"
-include: "rules/TFannot.smk"
-include: "rules/orthofinder.smk"
+# include: "rules/TFannot.smk"
+# include: "rules/orthofinder.smk"
 
 #Rule ALL
-
 rule all:
-	input: [expand("{runname}_{organism}.pep.fa",runname=config["runname"],organism=config["organism"]),'annotation.DONE']
+	input: ["transdecoder/predicted.pep","emapper.DONE", "predicted_rbh.tsv"]

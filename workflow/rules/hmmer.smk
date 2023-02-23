@@ -1,6 +1,6 @@
 rule hmmerevidence:
 	input: 
-		longorfs = "longorfs.done",
+		longorfs = "steps/longorfs.done",
 		hmmerdone = "dlhmmer.DONE"
 	output:"pfam.domtblout"
 	conda: "../envs/hmmscan.yml"

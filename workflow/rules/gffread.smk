@@ -10,7 +10,6 @@ rule gffread:
 	conda: "../envs/gffread.yml"
 	shell:
 		'''
-		gffread -w transcripts.fna -g {input.genome} {input.gtf} && \
-		cp transcripts.fna {output.transcripts} && \
+		gffread -w {output.transcripts} -g {input.genome} {input.gtf} && \
 		touch {output.done}
 		'''

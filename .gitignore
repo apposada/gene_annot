@@ -13,3 +13,4 @@ uniprot_sprot.fasta*
 blastp.outfmt6
 checkpoints/
 transdecoder/
+assets/dynamic/

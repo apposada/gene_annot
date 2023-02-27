@@ -18,15 +18,16 @@ rule recipbesthits:
 	output: "predicted_rbh.tsv"
 	params:
 		rbh1 = config["params"]["rbh1"],
-		rbh2 = config["params"]["rbh2"]
+		rbh2 = config["params"]["rbh2"],
+		db_dir = "assets/dynamic/hmmer_db"
 	conda: "../envs/blast.yml"
 	shell:
 		'''
-		blastp -db uniprot_sprot.fa -query {input.predictedpep} \
+		blastp -db {params.db_dir}/uniprot_sprot.fa -query {input.predictedpep} \
 		{params.rbh1} | \
 		tee rbh_1_2_orig.tsv | \
 		cut -f1,2 > rbh_1_2.tsv && \
-		blastp -db {input.predictedpep} -query uniprot_sprot.fa \
+		blastp -db {input.predictedpep} -query {params.db_dir}/uniprot_sprot.fa \
 		{params.rbh2} | \
 		tee rbh_2_1_orig.tsv | \
 		cut -f1,2 > rbh_2_1.tsv && \

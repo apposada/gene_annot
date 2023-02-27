@@ -12,26 +12,28 @@ rule downloadeggnog:
 rule downloadhmmer:
 	output:"checkpoints/dlhmmer.DONE"
 	params:
-		hmmerURL = config["params"]["hmmer_url"]
+		hmmerURL = config["params"]["hmmer_url"],
+		db_dir = "assets/dynamic/hmmer_db"
 	conda: "../envs/hmmer.yml"
 	shell:
 		'''
-		wget {params.hmmerURL} && \
-		gunzip Pfam-A.hmm.gz && \
-		hmmpress Pfam-A.hmm && \
+		wget {params.hmmerURL} -P {params.db_dir} && \
+		gunzip {params.db_dir}/Pfam-A.hmm.gz && \
+		hmmpress {params.db_dir}/Pfam-A.hmm && \
 		touch {output}
 		'''
 
 rule downloadswissprot:
 	output:"checkpoints/dlswissprot.DONE"
 	params:
-		swissprotURL = config["params"]["swissprot_url"]
+		swissprotURL = config["params"]["swissprot_url"],
+		db_dir = "assets/dynamic/blast_db"
 	conda: "../envs/blast.yml"
 	shell:
 		'''
-		wget {params.swissprotURL} && \
-		gunzip uniprot_sprot.fasta.gz && \
-		makeblastdb -dbtype prot -in uniprot_sprot.fasta && \
+		wget {params.swissprotURL} -P {params.db_dir} && \
+		gunzip {params.db_dir}/uniprot_sprot.fasta.gz && \
+		makeblastdb -dbtype prot -in {params.db_dir}/uniprot_sprot.fasta && \
 		touch {output}
 		'''
 

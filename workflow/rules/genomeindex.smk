@@ -8,6 +8,6 @@ rule genomeindex:
 	conda: "../envs/samtools.yml"
 	shell:
 		'''
-		samtools faidx {input.genome} 2> {log} &1>2 \
-		&& touch ./steps/{output} 
+		samtools faidx {input.genome} \
+		&& touch {output} 
 		'''

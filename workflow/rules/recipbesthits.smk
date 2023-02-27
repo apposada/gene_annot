@@ -2,7 +2,7 @@ rule makeblastdb:
 	input:
 		predictedpep = "transdecoder/predicted.pep"
 	output: "checkpoints/makeblastdb.done"
-	conda: "../envs/blastp.yml"
+	conda: "../envs/blast.yml"
 	log: "logs/makeblastdb.log"
 	shell:
 		'''
@@ -19,7 +19,7 @@ rule recipbesthits:
 	params:
 		rbh1 = config["params"]["rbh1"],
 		rbh2 = config["params"]["rbh2"]
-	conda: "../envs/blastp.yml"
+	conda: "../envs/blast.yml"
 	shell:
 		'''
 		blastp -db uniprot_sprot.fa -query {input.predictedpep} \

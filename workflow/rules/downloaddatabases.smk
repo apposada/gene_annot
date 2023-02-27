@@ -13,11 +13,12 @@ rule downloadhmmer:
 	output:"checkpoints/dlhmmer.DONE"
 	params:
 		hmmerURL = config["params"]["hmmer_url"]
-	conda: "../envs/hmmscan.yml"
+	conda: "../envs/hmmer.yml"
 	shell:
 		'''
 		wget {params.hmmerURL} && \
-		hmmpress && \
+		gunzip Pfam-A.hmm.gz && \
+		hmmpress Pfam-A.hmm && \
 		touch {output}
 		'''
 
@@ -25,11 +26,12 @@ rule downloadswissprot:
 	output:"checkpoints/dlswissprot.DONE"
 	params:
 		swissprotURL = config["params"]["swissprot_url"]
-	conda: "../envs/blastp.yml"
+	conda: "../envs/blast.yml"
 	shell:
 		'''
 		wget {params.swissprotURL} && \
-		makeblasdtb -dbtype prot -in uniprot_sprot.fasta && \
+		gunzip uniprot_sprot.fasta.gz && \
+		makeblastdb -dbtype prot -in uniprot_sprot.fasta && \
 		touch {output}
 		'''
 
@@ -42,14 +44,14 @@ rule downloadanimaltfdb:
 		wget {params.animaltfdbURL} && touch {output}
 		'''
 
-rule downloadSFAM:
-	output: "checkpoints/dlSFAM.DONE"
-	params:
-		SFAM_URL = config["params"]["SUPERFAMILY_URL"]
-	shell:
-		'''
-		wget {params.SFAM_URL} && touch {output}
-		'''
+# rule downloadSFAM:
+# 	output: "checkpoints/dlSFAM.DONE"
+# 	params:
+# 		SFAM_URL = config["params"]["SUPERFAMILY_URL"]
+# 	shell:
+# 		'''
+# 		wget {params.SFAM_URL} && touch {output}
+# 		'''
 
 #this should be user-provided maybe? a table that snakemake can read using functions?
 rule downloadOrthofinderGenomes:

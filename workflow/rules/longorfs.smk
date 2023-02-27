@@ -5,6 +5,8 @@ rule longorfs:
 	conda: "../envs/transdecoder.yml"
 	shell:
 		'''
-		TransDecoder.LongOrfs -t {input.transcripts} && touch {output}
+		TransDecoder.LongOrfs -t {input.transcripts} \
+		--output_dir ./transdecoder/transdecoder_dir/ \
+		&& touch {output}
 		'''
 

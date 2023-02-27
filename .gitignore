@@ -1,1 +1,15 @@
 .snakemake/
+tests/
+data/longest.gff3
+data/parsed.gff3
+Pfam-A.hmm*
+pipeliner*
+*.cmds
+pfam.domtblout
+transcripts.fna
+transcripts.fna.transdecoder*
+transcripts.fna.transdecoder_dir*
+uniprot_sprot.fasta*
+blastp.outfmt6
+checkpoints/
+transdecoder/

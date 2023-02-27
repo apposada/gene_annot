@@ -7,4 +7,4 @@ This is a snakemake wrapper of a number of well-known, standardised tools to ann
 
 ## Input
 
-The only essential (for the moment) input is a .fasta file with your sequences of interest.
+The only essential (for the moment) input is a .fasta file of a genome AND a .gtf annotation of the genes of your organism. Alternatively, you can provide a transcripts.fasta file with yout sequences of interest.

@@ -24,8 +24,8 @@ rule interproscan_pfam_panther:
 
 rule interproscan_SUPERFAMILY:
 	input: 
-		predictedpep = "transdecoder/predicted.pep",
-		superfamilydone = "checkpoints/dlSFAM.DONE"
+		predictedpep = "transdecoder/predicted.pep"
+		# superfamilydone = "checkpoints/dlSFAM.DONE"
 	output: "predicted.pep_sfam_tfs.tsv"
 	params:
 		outdir = "predicted.pep_interproscan",

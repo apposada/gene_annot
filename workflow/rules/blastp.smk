@@ -2,11 +2,11 @@ rule blastpevidence:
 	input: 
 		longorfs = "checkpoints/longorfs.done",
 		swissprotdone = "checkpoints/dlswissprot.DONE"
-	output:"blastp.outfmt6"
+	output:"transdecoder/evidences/blastp.outfmt6"
 	conda: "../envs/blast.yml"
 	shell:
 		'''
-		blastp -query transcripts.transdecoder_dir/longest_orfs.pep \
+		blastp -query transdecoder/transdecoder_dir/longest_orfs.pep \
 		-db uniprot_sprot.fasta \
 		-max_target_seqs 1 \
 		-outfmt 6 \

@@ -2,12 +2,12 @@ rule hmmerevidence:
 	input: 
 		longorfs = "checkpoints/longorfs.done",
 		hmmerdone = "checkpoints/dlhmmer.DONE"
-	output:"pfam.domtblout"
-	conda: "../envs/hmmscan.yml"
+	output:"transdecoder/evidences/pfam.domtblout"
+	conda: "../envs/hmmer.yml"
 	shell:
 		'''
 		hmmscan --cpu 12  \
 		--domtblout {output} \
-		~/DATA/static/databases/pfam/Pfam-A.hmm \
-		transcripts.transdecoder_dir/longest_orfs.pep
+		Pfam-A.hmm \
+		transdecoder/transdecoder_dir/longest_orfs.pep
 		'''

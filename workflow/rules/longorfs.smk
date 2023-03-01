@@ -1,6 +1,7 @@
 rule longorfs:
 	input:
-		transcripts = "transdecoder/transcripts.fna"
+		transcripts = "transdecoder/transcripts.fna",
+		gffreaddone = "checkpoints/gffread.done"
 	output: "checkpoints/longorfs.done"
 	conda: "../envs/transdecoder.yml"
 	shell:

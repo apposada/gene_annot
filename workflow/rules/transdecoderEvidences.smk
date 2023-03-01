@@ -12,8 +12,8 @@ rule transdecoder_predict_evidence:
 		predictedpep = "transdecoder/predicted.pep"
 	params:
 		awkexpr1 = r"""/^>/ {{ sub(/^>/, ""); seqname=$1; sub(/^[^ ]* /, ""); extra_info=$0; printf("%s\t%s\n", seqname, extra_info) }}""",
-		awkexpr2 = r"""{sub(/\.p[0-9]+ .*/,"")}1"""
-		outdir = "./transdecoder/predict_evidences"
+		awkexpr2 = r"""{sub(/\.p[0-9]+ .*/,"")}1""",
+		outdir = "./transdecoder/transdecoder_dir"
 	conda: "../envs/transdecoder.yml"
 	shell:
 		'''
@@ -22,6 +22,7 @@ rule transdecoder_predict_evidence:
         --retain_blastp_hits {input.blastp} \
         --single_best_only \
 		--output_dir {params.outdir} && \
+		mv transcripts.fna.transdecoder* {params.outdir} && \
 		awk {params.awkexpr1:q} {params.outdir}/transcripts.fna.transdecoder.pep > {output.transdecoderTSV} && \
 		awk {params.awkexpr2:q} {params.outdir}/transcripts.fna.transdecoder.pep > {output.predictedpep} && \
 		touch {output.transdecoderDone}

@@ -4,7 +4,7 @@ rule blastpevidence:
 		swissprotdone = "checkpoints/dlswissprot.DONE"
 	output:"transdecoder/evidences/blastp.outfmt6"
 	params:
-		db_dir = "assets/dynamic/hmmer_db"
+		db_dir = "assets/dynamic/blast_db"
 	conda: "../envs/blast.yml"
 	shell:
 		'''

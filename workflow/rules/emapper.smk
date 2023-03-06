@@ -5,7 +5,7 @@ rule emapper:
 	params:
 		eggnog = config["params"]["emapper"],
 		outdir = "./eggnog"
-	output: "emapper.DONE"
+	output: "checkpoints/emapper.DONE"
 	conda: "../envs/eggnog.yml"
 	log: "logs/emapper.log"
 	shell:

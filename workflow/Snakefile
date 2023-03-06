@@ -26,6 +26,6 @@ include: "rules/interproscan.smk"
 
 #Rule ALL
 rule all:
-	input: ["checkpoints/transdecoder.DONE"]
+	input: ["checkpoints/transdecoder.DONE","checkpoints/emapper.DONE","predicted.pep_pfam_tfs.tsv","predicted.pep_sfam_tfs.tsv"]
 
 #input: ["transdecoder/predicted.pep","emapper.DONE", "predicted_rbh.tsv", "predicted.pep_pfam_tfs.tsv","predicted.pep_sfam_tfs.tsv" ]

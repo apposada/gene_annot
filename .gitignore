@@ -14,3 +14,4 @@ blastp.outfmt6
 checkpoints/
 transdecoder/
 assets/dynamic/
+logs/

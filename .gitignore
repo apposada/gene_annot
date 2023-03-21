@@ -15,3 +15,8 @@ checkpoints/
 transdecoder/
 assets/dynamic/
 logs/
+temp/
+predicted.pep.*
+predicted.pep_*
+rbh_*
+*_interproscan/

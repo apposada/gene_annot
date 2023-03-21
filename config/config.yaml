@@ -7,12 +7,14 @@ path_transcriptome: "data/transcripts.fasta"
 params:
   genomeindex: ""
   eggnogdatabase: "33208"
-  emapper: "-m diamond --sensmode sensitive --target_orthologs all --go_evidence non-electronic"
+  emapper: "-m diamond --sensmode sensitive --target_orthologs all --go_evidence non-electronic --override"
   hmmer_url: "https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz"
   swissprot_url: "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz"
+  interproscan_link: "https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.61-93.0/interproscan-5.61-93.0-64-bit.tar.gz"
+  interproscan_path: "/mnt/sda/alberto/programs/interproscan/interproscan-5.61-93.0/"
   animalTFDB_url: ""
-  rbh1: r"""-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 qseqid sseqid qcovhsp evalue""""
-  rbh2: r"""-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 sseqid qseqid qcovhsp evalue""""
+  rbh1: '-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 qseqid sseqid qcovhsp evalue"'
+  rbh2: '-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 sseqid qseqid qcovhsp evalue"'
   PATH_TO_PFAM_TF_DATABASE: "assets/static/databases/tfs_pfam_db.tsv"
   PATH_TO_SFAM_TF_DATABASE: "assets/static/databases/tfs_sfam_db.tsv"
   SUPERFAMILY_URL: ""

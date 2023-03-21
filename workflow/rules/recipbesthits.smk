@@ -19,15 +19,15 @@ rule recipbesthits:
 	params:
 		rbh1 = config["params"]["rbh1"],
 		rbh2 = config["params"]["rbh2"],
-		db_dir = "assets/dynamic/hmmer_db"
+		db_dir = "assets/dynamic/blast_db"
 	conda: "../envs/blast.yml"
 	shell:
 		'''
-		blastp -db {params.db_dir}/uniprot_sprot.fa -query {input.predictedpep} \
+		blastp -db {params.db_dir}/uniprot_sprot.fasta -query {input.predictedpep} \
 		{params.rbh1} | \
 		tee rbh_1_2_orig.tsv | \
 		cut -f1,2 > rbh_1_2.tsv && \
-		blastp -db {input.predictedpep} -query {params.db_dir}/uniprot_sprot.fa \
+		blastp -db {input.predictedpep} -query {params.db_dir}/uniprot_sprot.fasta \
 		{params.rbh2} | \
 		tee rbh_2_1_orig.tsv | \
 		cut -f1,2 > rbh_2_1.tsv && \

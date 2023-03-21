@@ -10,7 +10,8 @@ rule emapper:
 	log: "logs/emapper.log"
 	shell:
 		'''
-		emapper.py --cpu 12 \
+		emapper.py \
+		--cpu 12 \
         -i {input.pep} \
 		--itype proteins \
         {params.eggnog} \

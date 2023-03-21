@@ -3,9 +3,10 @@ rule downloadeggnog:
 		database = config["params"]["eggnogdatabase"]
 	conda:"../envs/eggnog.yml"
 	output: "checkpoints/eggnogdb.DONE"
+	log: "logs/download_eggnog_db.log"
 	shell:
 		'''
-		download_eggnog_data.py -y -H -d {params.database} && \
+		download_eggnog_data.py -y -H -f  -d {params.database} 2> {log} && \
 		touch {output}
 		'''
 
@@ -45,17 +46,3 @@ rule downloadanimaltfdb:
 		'''
 		wget {params.animaltfdbURL} && touch {output}
 		'''
-
-# rule downloadSFAM:
-# 	output: "checkpoints/dlSFAM.DONE"
-# 	params:
-# 		SFAM_URL = config["params"]["SUPERFAMILY_URL"]
-# 	shell:
-# 		'''
-# 		wget {params.SFAM_URL} && touch {output}
-# 		'''
-
-#this should be user-provided maybe? a table that snakemake can read using functions?
-rule downloadOrthofinderGenomes:
-	output: "dlOFgenomes.DONE"
-	params:

@@ -13,6 +13,7 @@ rule transdecoder_predict_evidence:
 	params:
 		awkexpr1 = r"""/^>/ {{ sub(/^>/, ""); seqname=$1; sub(/^[^ ]* /, ""); extra_info=$0; printf("%s\t%s\n", seqname, extra_info) }}""",
 		awkexpr2 = r"""{sub(/\.p[0-9]+ .*/,"")}1""",
+		awkexpr3 = r"""{sub(/\*/,"")}1""",
 		outdir = "./transdecoder/transdecoder_dir"
 	conda: "../envs/transdecoder.yml"
 	shell:
@@ -24,6 +25,6 @@ rule transdecoder_predict_evidence:
 		--output_dir {params.outdir} && \
 		mv transcripts.fna.transdecoder* {params.outdir} && \
 		awk {params.awkexpr1:q} {params.outdir}/transcripts.fna.transdecoder.pep > {output.transdecoderTSV} && \
-		awk {params.awkexpr2:q} {params.outdir}/transcripts.fna.transdecoder.pep > {output.predictedpep} && \
+		awk {params.awkexpr2:q} {params.outdir}/transcripts.fna.transdecoder.pep | awk {params.awkexpr3:q} > {output.predictedpep} && \
 		touch {output.transdecoderDone}
 		'''

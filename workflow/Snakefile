@@ -21,9 +21,9 @@ include: "rules/transdecoderEvidences.smk"
 include: "rules/emapper.smk"
 include: "rules/recipbesthits.smk"
 include: "rules/interproscan.smk"
+include: "rules/orthofinder.smk"
 # include: "rules/TFannot.smk"
-# include: "rules/orthofinder.smk"
 
 #Rule ALL
 rule all:
-	input: ["checkpoints/transdecoder.DONE","checkpoints/emapper.DONE","predicted.pep_pfam_tfs.tsv","predicted.pep_sfam_tfs.tsv","predicted_rbh.tsv"]
+	input: ["checkpoints/transdecoder.DONE","checkpoints/emapper.DONE","predicted.pep_pfam_tfs.tsv","predicted.pep_sfam_tfs.tsv","predicted_rbh.tsv","checkpoints/orthofinder.DONE"]

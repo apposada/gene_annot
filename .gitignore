@@ -20,3 +20,5 @@ predicted.pep.*
 predicted.pep_*
 rbh_*
 *_interproscan/
+predicted_*
+orthofinder

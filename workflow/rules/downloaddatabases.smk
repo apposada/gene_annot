@@ -19,7 +19,7 @@ rule downloadhmmer:
 	shell:
 		'''
 		wget {params.hmmerURL} -P {params.db_dir} && \
-		gunzip {params.db_dir}/Pfam-A.hmm.gz && \
+		gunzip -f {params.db_dir}/Pfam-A.hmm.gz && \
 		hmmpress {params.db_dir}/Pfam-A.hmm && \
 		touch {output}
 		'''
@@ -33,7 +33,7 @@ rule downloadswissprot:
 	shell:
 		'''
 		wget {params.swissprotURL} -P {params.db_dir} && \
-		gunzip {params.db_dir}/uniprot_sprot.fasta.gz && \
+		gunzip -f {params.db_dir}/uniprot_sprot.fasta.gz && \
 		makeblastdb -dbtype prot -in {params.db_dir}/uniprot_sprot.fasta && \
 		touch {output}
 		'''

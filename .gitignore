@@ -29,7 +29,9 @@ predicted_*
 rbh_*
 temp/
 test
+test.txt
 tests/
+tmp/
 transcripts.fna
 transcripts.fna.transdecoder*
 transcripts.fna.transdecoder_dir*

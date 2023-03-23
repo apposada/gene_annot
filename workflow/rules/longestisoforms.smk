@@ -6,5 +6,5 @@ rule longestisoforms:
 	shell:
 		'''
 		agat_sp_keep_longest_isoform.pl --gff {input} -o {output} \
-		2> {log} &1>2
+		2> {log}
 		'''

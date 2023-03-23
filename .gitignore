@@ -30,3 +30,8 @@ test
 *.fai
 *.gff3
 *.gtf
+data/annotation.gtf
+data/genome.fa
+data/genome.fa.fai
+logs/longestisoforms.log
+logs/parsegtf.log

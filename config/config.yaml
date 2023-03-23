@@ -1,6 +1,6 @@
 # Config File
 
-organism: "Dragonfish"
+organism: "Smed_Rink"
 path_genome: "data/genome.fa"
 path_gtf: "data/annotation.gtf"
 path_transcriptome: "data/transcripts.fasta"
@@ -17,7 +17,7 @@ params:
   rbh1: '-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 qseqid sseqid qcovhsp evalue"'
   rbh2: '-max_target_seqs 1 -evalue 10E-5 -num_threads 12 -outfmt "6 sseqid qseqid qcovhsp evalue"'
   proteomes_directory: "/mnt/sda/alberto/genomes/proteomes_orthofinder_TFannot"
-  orthofinder_params: "-t 8"
+  orthofinder_params: "-t 12"
   PATH_TO_PFAM_TF_DATABASE: "assets/static/databases/tfs_pfam_db.tsv"
   PATH_TO_SFAM_TF_DATABASE: "assets/static/databases/tfs_sfam_db.tsv"
   SUPERFAMILY_URL: ""

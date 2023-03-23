@@ -22,3 +22,11 @@ rbh_*
 *_interproscan/
 predicted_*
 orthofinder
+logs
+*.log
+test
+*.fasta
+*.fa
+*.fai
+*.gff3
+*.gtf
